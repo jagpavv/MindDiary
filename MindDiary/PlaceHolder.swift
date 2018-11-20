@@ -68,7 +68,6 @@ class PlaceHolder: UIView {
 
  5)enter
  enter your pass code
-
  */
 
 

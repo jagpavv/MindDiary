@@ -157,11 +157,34 @@
                         <outletCollection property="placeHolders" destination="4rh-Hh-OTI" collectionClass="NSMutableArray" id="fDh-Eq-siQ"/>
                         <outletCollection property="placeHolders" destination="2QD-9I-tmz" collectionClass="NSMutableArray" id="u3h-mF-gJ6"/>
                         <outletCollection property="placeHolders" destination="YSa-cm-TiB" collectionClass="NSMutableArray" id="J87-hj-JfC"/>
+                        <segue destination="bZZ-bQ-MFS" kind="show" identifier="moveToDiaryMain" id="PKN-3C-WLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Diary Main View Controller-->
+        <scene sceneID="dW7-de-Quz">
+            <objects>
+                <viewController storyboardIdentifier="DiaryMain" id="bZZ-bQ-MFS" customClass="DiaryMainViewController" customModule="MindDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Xn-Qx-7dn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-5J-Ku3">
+                                <rect key="frame" x="88" y="122" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="z6y-UR-9y1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hy3-B3-wwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="134"/>
         </scene>
     </scenes>
 </document>

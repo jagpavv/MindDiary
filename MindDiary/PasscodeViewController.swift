@@ -8,7 +8,6 @@ class PasscodeViewController: UIViewController {
 
   @IBOutlet var placeHolders: [PlaceHolder]!
 
-
   //  let userDefault = UserDefaults.standard
   //  private var savedPasscode: [Int]? {
   //    get {
@@ -19,10 +18,24 @@ class PasscodeViewController: UIViewController {
   //    }
   //  }
 
-  private var savedPasscode = [1, 2, 3, 4]
+  private var savedPasscode = [Int]()
   var inputPasscode = [Int]()
 
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    print(savedPasscode.isEmpty)
+  }
 
+  // If user didn't set the passcode move to Diary main view
+  override func viewDidAppear(_ animated: Bool) {
+    if savedPasscode.isEmpty {
+      let mainStoryBoard = UIStoryboard(name: "Main", bundle: nil)
+      guard let DiaryMainViewController = mainStoryBoard.instantiateViewController(withIdentifier: "DiaryMain") as? DiaryMainViewController else { return }
+      present(DiaryMainViewController, animated: false, completion: nil)
+    }
+  }
+
+  // Digit (0~9), cancel, delete Button
   @IBAction func btnTapped(_ sender: Button) {
     switch sender.tag {
     case 0, 1, 2, 3, 4, 5, 6, 7, 8, 9:
@@ -31,9 +44,9 @@ class PasscodeViewController: UIViewController {
         self.checkPasscode(digit: sender.tag)
       }
       print(inputPasscode)
-    case 100:
+    case 100: // cancel
       clearAll()
-    case 111:
+    case 111: // delete
       clearOnebyOne()
     default:
       break
@@ -51,7 +64,6 @@ class PasscodeViewController: UIViewController {
         isIncorrectAnimation()
       }
     }
-
   }
 
   // Fill up the color when isColored is true.
@@ -74,7 +86,6 @@ class PasscodeViewController: UIViewController {
     placeHolders[inputPasscode.endIndex].clear()
   }
 
-
   func isIncorrectAnimation() {
     inputPasscode.removeAll()
     placeHolders.forEach { (placeHolder) in
@@ -82,6 +93,4 @@ class PasscodeViewController: UIViewController {
       placeHolder.clear()
     }
   }
-
-
 }
