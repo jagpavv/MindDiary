@@ -1,24 +1,190 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
+        <!--Passcode View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="PasscodeViewController" customModule="MindDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QkV-c0-i9b">
+                                <rect key="frame" x="112" y="120" width="150" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LSJ-FH-Vso" userLabel="first" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="5" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rh-Hh-OTI" userLabel="second" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="42" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QD-9I-tmz" userLabel="thrid" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="80" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSa-cm-TiB" userLabel="fourth" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="116" y="8" width="30" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                            </view>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="If4-UV-YGv">
+                                <rect key="frame" x="0.0" y="229" width="375" height="438"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <button opaque="NO" tag="1" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zGL-T5-Ugp" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="24" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="1"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="uvq-zq-tMN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5bR-9E-JQk" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="157" y="24" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="2"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="iHT-mD-Awo"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QPI-IM-RcC" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="261" y="24" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="3"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FSS-Aa-SC9"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="4" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l72-b8-72z" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="112" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="4"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ivP-6F-Xhi"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="5" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dd5-Jp-rfx" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="157" y="112" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="5"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="mPD-tY-qhN"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="6" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mmE-Qf-qHn" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="261" y="112" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="6"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="7FD-PM-epT"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="7" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2zN-HY-XRF" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="205" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="7"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="GKR-JG-k4T"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="8" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Bd-S4-LLE" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="157" y="205" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="8"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="FYW-hS-rL7"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="9" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="V02-V6-n4c" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="261" y="205" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="9"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="bjn-0U-xMb"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="100" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bqX-ms-8DE" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="62" y="299" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="cancel"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="XKh-eR-6Lz"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="M7c-2J-K5H" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="157" y="299" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="0"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="OyC-Tq-Kdr"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="111" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VaL-BI-L63" customClass="Button" customModule="MindDiary" customModuleProvider="target">
+                                        <rect key="frame" x="261" y="299" width="60" height="60"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <state key="normal" title="delete"/>
+                                        <connections>
+                                            <action selector="btnTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Zlx-4I-Sb0"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
+                    <connections>
+                        <outletCollection property="placeHolders" destination="LSJ-FH-Vso" collectionClass="NSMutableArray" id="H3t-tM-vr8"/>
+                        <outletCollection property="placeHolders" destination="4rh-Hh-OTI" collectionClass="NSMutableArray" id="fDh-Eq-siQ"/>
+                        <outletCollection property="placeHolders" destination="2QD-9I-tmz" collectionClass="NSMutableArray" id="u3h-mF-gJ6"/>
+                        <outletCollection property="placeHolders" destination="YSa-cm-TiB" collectionClass="NSMutableArray" id="J87-hj-JfC"/>
+                        <segue destination="bZZ-bQ-MFS" kind="show" identifier="moveToDiaryMain" id="PKN-3C-WLD"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
+        </scene>
+        <!--Diary Main View Controller-->
+        <scene sceneID="dW7-de-Quz">
+            <objects>
+                <viewController storyboardIdentifier="DiaryMain" id="bZZ-bQ-MFS" customClass="DiaryMainViewController" customModule="MindDiary" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="5Xn-Qx-7dn">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-5J-Ku3">
+                                <rect key="frame" x="88" y="122" width="240" height="128"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="z6y-UR-9y1"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hy3-B3-wwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1334" y="134"/>
         </scene>
     </scenes>
 </document>
