@@ -2,10 +2,15 @@ import UIKit
 import Foundation
 
 let kNumberOfDiaryCard = 3
-class DiaryMainViewController: UIViewController {
+class DiaryMainViewController: UIViewController, UITextViewDelegate {
 
   var diaryCardView: UIView!
   @IBOutlet weak var diaryCardBaseView: UIView!
+
+//  override func viewDidLoad() {
+//    super.viewDidLoad()
+//    showDiaryCard()
+//  }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
@@ -17,6 +22,7 @@ class DiaryMainViewController: UIViewController {
     let pad = CGFloat(10)
 
     // DiaryCards
+    diaryCardView = UIView()
     let totalHeight = diaryCardBaseView.frame.height
     let diaryCardWidth = diaryCardBaseView.frame.width
     let diaryCardHeight = (totalHeight - (pad * CGFloat(3 + 1))) / 3
@@ -24,6 +30,7 @@ class DiaryMainViewController: UIViewController {
     // Inside of DiaryCards (mood color view) = mcv
     let mcvWidth = diaryCardWidth / 4
     let mcvTotalHeight = diaryCardHeight
+//    let mcvColor : [CGColor] = [#colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1), #colorLiteral(red: 1, green: 0.6235294118, blue: 0.03921568627, alpha: 1), #colorLiteral(red: 1, green: 0.2156862745, blue: 0.3725490196, alpha: 1)]
 
     // text section
     let textViewWidth = (diaryCardWidth - ((pad * 2) + mcvWidth))
@@ -35,12 +42,14 @@ class DiaryMainViewController: UIViewController {
 
       // DiaryCards
       let diaryCard = UIView(frame: CGRect(x: x, y: y, width: diaryCardWidth, height: diaryCardHeight))
-      diaryCard.backgroundColor = UIColor.gray
+      diaryCard.layer.borderWidth = 1
+      diaryCard.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
       self.diaryCardBaseView.addSubview(diaryCard)
 
       // Inside of DiaryCards (mood color view) = mcv
       let mcv = UIView(frame: CGRect(x: 0, y: 0, width: mcvWidth, height: mcvTotalHeight))
-      mcv.backgroundColor = UIColor.blue
+//      mcv.layer.backgroundColor = mcvColor[idx]
+      mcv.layer.backgroundColor = DiaryMainView.init().moodColor[idx]
       diaryCard.addSubview(mcv)
 
       // text section
@@ -48,7 +57,11 @@ class DiaryMainViewController: UIViewController {
       let yy = pad
 
       let textView = UITextView(frame: CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight))
-      textView.backgroundColor = #colorLiteral(red: 1, green: 0.6235294118, blue: 0.03921568627, alpha: 1)
+      textView.text = DiaryMainView.init().placeHolderTxt[idx]
+      textView.textColor = UIColor.lightGray
+      textView.becomeFirstResponder()
+      textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+
       diaryCard.addSubview(textView)
     }
   }
@@ -58,6 +71,7 @@ class DiaryMainViewController: UIViewController {
 
 
 //  func showDiaryCard2() {
+//    diaryCardView = UIView()
 //    let totalWidth = diaryCardBaseView.frame.width
 //    let totalHeight = diaryCardBaseView.frame.height / 3
 //
