@@ -157,14 +157,14 @@
                         <outletCollection property="placeHolders" destination="4rh-Hh-OTI" collectionClass="NSMutableArray" id="fDh-Eq-siQ"/>
                         <outletCollection property="placeHolders" destination="2QD-9I-tmz" collectionClass="NSMutableArray" id="u3h-mF-gJ6"/>
                         <outletCollection property="placeHolders" destination="YSa-cm-TiB" collectionClass="NSMutableArray" id="J87-hj-JfC"/>
-                        <segue destination="bZZ-bQ-MFS" kind="show" identifier="moveToDiaryMain" id="PKN-3C-WLD"/>
+                        <segue destination="4II-yO-rjS" kind="show" identifier="moveToDiaryMain" id="PKN-3C-WLD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="136.80000000000001" y="133.5832083958021"/>
         </scene>
-        <!--Diary Main View Controller-->
+        <!--Item-->
         <scene sceneID="dW7-de-Quz">
             <objects>
                 <viewController storyboardIdentifier="DiaryMain" id="bZZ-bQ-MFS" customClass="DiaryMainViewController" customModule="MindDiary" customModuleProvider="target" sceneMemberID="viewController">
@@ -172,19 +172,45 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-5J-Ku3">
-                                <rect key="frame" x="88" y="122" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" name="systemOrangeColor" catalog="System" colorSpace="catalog"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-5J-Ku3">
+                                <rect key="frame" x="16" y="70" width="343" height="548"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="LXA-5J-Ku3" firstAttribute="top" secondItem="z6y-UR-9y1" secondAttribute="top" constant="50" id="EBR-d9-rPH"/>
+                            <constraint firstItem="LXA-5J-Ku3" firstAttribute="leading" secondItem="z6y-UR-9y1" secondAttribute="leading" constant="16" id="Gma-J1-fxC"/>
+                            <constraint firstItem="z6y-UR-9y1" firstAttribute="trailing" secondItem="LXA-5J-Ku3" secondAttribute="trailing" constant="16" id="dKh-61-SV2"/>
+                            <constraint firstItem="LXA-5J-Ku3" firstAttribute="bottom" secondItem="z6y-UR-9y1" secondAttribute="bottom" id="xXo-gh-djb"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="z6y-UR-9y1"/>
                     </view>
+                    <tabBarItem key="tabBarItem" title="Item" id="C74-jJ-yQx"/>
+                    <connections>
+                        <outlet property="diaryCardBaseView" destination="LXA-5J-Ku3" id="37R-fb-Sqt"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy3-B3-wwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1334" y="134"/>
+            <point key="canvasLocation" x="1612" y="133.5832083958021"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="NYu-cd-18w">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4II-yO-rjS" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q2N-cV-iBM">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="bZZ-bQ-MFS" kind="relationship" relationship="viewControllers" id="s1s-lS-wY1"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="5SP-j2-ACE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="876" y="134"/>
         </scene>
     </scenes>
 </document>
