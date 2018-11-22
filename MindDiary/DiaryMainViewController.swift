@@ -14,8 +14,9 @@ class DiaryMainViewController: UIViewController {
   }
 
   func showDiaryCard() {
-    // DiaryCards
     let pad = CGFloat(10)
+
+    // DiaryCards
     let totalHeight = diaryCardBaseView.frame.height
     let diaryCardWidth = diaryCardBaseView.frame.width
     let diaryCardHeight = (totalHeight - (pad * CGFloat(3 + 1))) / 3
@@ -24,8 +25,12 @@ class DiaryMainViewController: UIViewController {
     let mcvWidth = diaryCardWidth / 4
     let mcvTotalHeight = diaryCardHeight
 
+    // text section
+    let textViewWidth = (diaryCardWidth - ((pad * 2) + mcvWidth))
+    let textViewHeight = (diaryCardHeight - (pad * 2))
+
     for idx in 0..<kNumberOfDiaryCard {
-      let x = CGFloat(0) * (diaryCardWidth + pad)
+      let x = CGFloat(0) //     * (diaryCardWidth + pad)
       let y = CGFloat(idx % 3) * (diaryCardHeight + pad)
 
       // DiaryCards
@@ -37,8 +42,20 @@ class DiaryMainViewController: UIViewController {
       let mcv = UIView(frame: CGRect(x: 0, y: 0, width: mcvWidth, height: mcvTotalHeight))
       mcv.backgroundColor = UIColor.blue
       diaryCard.addSubview(mcv)
+
+      // text section
+      let xx = mcvWidth + pad
+      let yy = pad
+
+      let textView = UITextView(frame: CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight))
+      textView.backgroundColor = #colorLiteral(red: 1, green: 0.6235294118, blue: 0.03921568627, alpha: 1)
+      diaryCard.addSubview(textView)
     }
   }
+
+
+
+
 
 //  func showDiaryCard2() {
 //    let totalWidth = diaryCardBaseView.frame.width
