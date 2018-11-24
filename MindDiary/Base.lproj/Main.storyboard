@@ -1,10 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -15,29 +11,29 @@
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="PasscodeViewController" customModule="MindDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="QkV-c0-i9b">
                                 <rect key="frame" x="112" y="120" width="150" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LSJ-FH-Vso" userLabel="first" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LSJ-FH-Vso" userLabel="first" customClass="PinIndicator" customModule="MindDiary" customModuleProvider="target">
                                         <rect key="frame" x="5" y="8" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rh-Hh-OTI" userLabel="second" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4rh-Hh-OTI" userLabel="second" customClass="PinIndicator" customModule="MindDiary" customModuleProvider="target">
                                         <rect key="frame" x="42" y="8" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QD-9I-tmz" userLabel="thrid" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="2QD-9I-tmz" userLabel="thrid" customClass="PinIndicator" customModule="MindDiary" customModuleProvider="target">
                                         <rect key="frame" x="80" y="8" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSa-cm-TiB" userLabel="fourth" customClass="PlaceHolder" customModule="MindDiary" customModuleProvider="target">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="YSa-cm-TiB" userLabel="fourth" customClass="PinIndicator" customModule="MindDiary" customModuleProvider="target">
                                         <rect key="frame" x="116" y="8" width="30" height="30"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -153,10 +149,10 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
-                        <outletCollection property="placeHolders" destination="LSJ-FH-Vso" collectionClass="NSMutableArray" id="H3t-tM-vr8"/>
-                        <outletCollection property="placeHolders" destination="4rh-Hh-OTI" collectionClass="NSMutableArray" id="fDh-Eq-siQ"/>
-                        <outletCollection property="placeHolders" destination="2QD-9I-tmz" collectionClass="NSMutableArray" id="u3h-mF-gJ6"/>
-                        <outletCollection property="placeHolders" destination="YSa-cm-TiB" collectionClass="NSMutableArray" id="J87-hj-JfC"/>
+                        <outletCollection property="pinIndicators" destination="LSJ-FH-Vso" collectionClass="NSMutableArray" id="H3t-tM-vr8"/>
+                        <outletCollection property="pinIndicators" destination="4rh-Hh-OTI" collectionClass="NSMutableArray" id="fDh-Eq-siQ"/>
+                        <outletCollection property="pinIndicators" destination="2QD-9I-tmz" collectionClass="NSMutableArray" id="u3h-mF-gJ6"/>
+                        <outletCollection property="pinIndicators" destination="YSa-cm-TiB" collectionClass="NSMutableArray" id="J87-hj-JfC"/>
                         <segue destination="4II-yO-rjS" kind="show" identifier="moveToDiaryMain" id="PKN-3C-WLD"/>
                     </connections>
                 </viewController>
@@ -169,11 +165,11 @@
             <objects>
                 <viewController storyboardIdentifier="DiaryMain" id="bZZ-bQ-MFS" customClass="DiaryMainViewController" customModule="MindDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Xn-Qx-7dn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-5J-Ku3">
-                                <rect key="frame" x="16" y="70" width="343" height="548"/>
+                                <rect key="frame" x="16" y="70" width="568" height="481"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
@@ -201,6 +197,7 @@
                 <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="4II-yO-rjS" sceneMemberID="viewController">
                     <toolbarItems/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Q2N-cV-iBM">
+                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>

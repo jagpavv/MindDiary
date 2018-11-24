@@ -7,20 +7,20 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
   var diaryCardView: UIView!
   var moodColorView: UIView!
   var textView: UITextView!
+//  var placeholderLabel : UILabel!
 
   @IBOutlet weak var diaryCardBaseView: UIView!
 
-//  override func viewDidLoad() {
-//    super.viewDidLoad()
-//
-//  }
+  override func viewDidLoad() {
+    super.viewDidLoad()
+    textView?.delegate = self
+//    textView?.becomeFirstResponder()
+//    textView?.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+  }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     showDiaryCard()
-
-    textViewDidBeginEditing(textView)
-    textViewDidEndEditing(textView)
   }
 
   func showDiaryCard() {
@@ -40,6 +40,12 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
     let textViewHeight = (diaryCardHeight - (pad * 2))
     let xx = moodColorViewWidth + pad
     let yy = pad
+
+    // 4 placeholder label
+//    let placeholderLabelWidth = textViewWidth
+//    let placeholderLabelHeight = textViewHeight
+//    let xxx = xx
+//    let yyy = yy
 
     // draw views
     for idx in 0..<kNumberOfDiaryCard {
@@ -62,70 +68,64 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
       // 3 text view of DiaryCards
       textView = UITextView()
       textView.frame = CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight)
-
+      textView.tag = idx
+      textView.text = DiaryMainView.init().placeHolderTxt[idx]
+//      textView.textColor = UIColor.lightGray
       textView.delegate = self
       textView.becomeFirstResponder()
-
-//      textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-
-      textView.text = DiaryMainView.init().placeHolderTxt[idx]
-      textView.textColor = UIColor.lightGray
       diaryCardView.addSubview(textView)
+
+//      // 4 placeholder label
+//      placeholderLabel = UILabel()
+//      placeholderLabel.frame = CGRect(x: xxx, y: yyy, width: placeholderLabelWidth, height: placeholderLabelHeight)
+//      placeholderLabel.tag = idx
+//      placeholderLabel.text = "Placeholder for UITextView"
+//      placeholderLabel.text = DiaryMainView.init().placeHolderTxt[idx]
+//      placeholderLabel.isHidden = false
+//      placeholderLabel.textColor = UIColor.lightGray
+//      placeholderLabel.sizeToFit()
+//      placeholderLabel.isHidden = !textView.text.isEmpty
+//      diaryCardView.addSubview(placeholderLabel)
     }
   }
 
+
+//  // this code works with textview.delegate = self, textView.becomeFirstResponder()
+//  func textViewDidChange(_ textView: UITextView) {
+//    if !textView.hasText {
+//      placeholderLabel?.isHidden = false
+//    } else {
+//      placeholderLabel?.isHidden = true
+//    }
+//  }
+
   func textViewDidBeginEditing(_ textView: UITextView) {
-    if textView.textColor == UIColor.lightGray {
-      textView.text = nil
+    if textView.text == DiaryMainView.init().placeHolderTxt[textView.tag] {
+      textView.text = ""
+//      placeholderLabel.isHidden = true
+      textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
       textView.textColor = UIColor.black
+//      textView.font = UIFont(name: "verdana", size: 18.0)
     }
+  }
+
+  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+    if text == "\n" {
+      textView.resignFirstResponder()
+    }
+    return true
   }
 
   func textViewDidEndEditing(_ textView: UITextView) {
-    if textView.text.isEmpty {
-      textView.text = "Placeholder"
+    if textView.text == "" {
+      textView.text = DiaryMainView.init().placeHolderTxt[textView.tag]
+//      placeholderLabel.isHidden = true
       textView.textColor = UIColor.lightGray
+//      textView.font = UIFont(name: "verdana", size: 13.0)
     }
+    textView.resignFirstResponder()
   }
 
-//  func placeCursorPosition(_ textView: UITextView) {
-//    let startPosition: UITextPosition = textView.beginningOfDocument
-//    let endPosition: UITextPosition = textView.endOfDocument
-//    let selectedRange: UITextRange? = textView.selectedTextRange
-//
-//    if let selectedRange = textView.selectedTextRange {
-//
-//      let cursorPosition = textView.offset(from: textView.beginningOfDocument, to: selectedRange.start)
-//
-//      print("\(cursorPosition)")
-//    }
-//  }
-
-//  func showPlaceHolderText(replacementText inputedText: String) {
-//    //    var currentText = textView.text
-//    let updateText = ""
-//
-//    if updateText.isEmpty {
-//      textView.text = "Zzzzzzzzzz"
-//      textView.textColor = UIColor.lightGray
-////      textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-//    }
-//
-//    if self.view.window != nil {
-//      if textView.textColor == UIColor.lightGray && !inputedText.isEmpty {
-//        textView.text.removeAll()
-//        textView.textColor = UIColor.black
-//        textView.text = inputedText
-//        textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-//      }
-//    }
-////    else if textView.textColor == UIColor.lightGray && !inputedText.isEmpty {
-////      textView.text.removeAll()
-////      textView.textColor = UIColor.black
-////      textView.text = inputedText
-////    }
-//  }
-//
 //  func textViewDidChangeSelection(_ textView: UITextView) {
 //    if self.view.window != nil {
 //      if textView.textColor == UIColor.lightGray {
@@ -135,10 +135,5 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
 //  }
 
 
-}
-
-
-extension UITextViewDelegate {
 
 }
-
