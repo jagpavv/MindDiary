@@ -7,15 +7,13 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
   var diaryCardView: UIView!
   var moodColorView: UIView!
   var textView: UITextView!
-//  var placeholderLabel : UILabel!
+  var placeholderLabel : UILabel!
 
   @IBOutlet weak var diaryCardBaseView: UIView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
-    textView?.delegate = self
-//    textView?.becomeFirstResponder()
-//    textView?.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+
   }
 
   override func viewDidAppear(_ animated: Bool) {
@@ -42,10 +40,10 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
     let yy = pad
 
     // 4 placeholder label
-//    let placeholderLabelWidth = textViewWidth
-//    let placeholderLabelHeight = textViewHeight
-//    let xxx = xx
-//    let yyy = yy
+    let placeholderLabelWidth = textViewWidth
+    let placeholderLabelHeight = textViewHeight
+    let xxx = xx
+    let yyy = yy
 
     // draw views
     for idx in 0..<kNumberOfDiaryCard {
@@ -67,28 +65,41 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
 
       // 3 text view of DiaryCards
       textView = UITextView()
-      textView.frame = CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight)
-      textView.tag = idx
-      textView.text = DiaryMainView.init().placeHolderTxt[idx]
-//      textView.textColor = UIColor.lightGray
       textView.delegate = self
-      textView.becomeFirstResponder()
+//      textView.becomeFirstResponder()
+      textView.frame = CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight)
+//      textView.tag = idx
+//      textView.text = DiaryMainView.init().placeHolderTxt[idx]
+
+//      if textView.tag == 0 {
+//        textView.becomeFirstResponder()
+//      }
+
+//      NotificationCenter.default.addObserver(self,
+//                                             selector: #selector(DiaryMainViewController.textViewDidBeginEditing(_:)),
+//                                             name: UITextView.textDidBeginEditingNotification,
+//                                             object: self)
+
+      textView.textColor = UIColor.black
+      textView.font = UIFont(name: "verdana", size: 18.0)
+
+
       diaryCardView.addSubview(textView)
 
 //      // 4 placeholder label
-//      placeholderLabel = UILabel()
-//      placeholderLabel.frame = CGRect(x: xxx, y: yyy, width: placeholderLabelWidth, height: placeholderLabelHeight)
-//      placeholderLabel.tag = idx
-//      placeholderLabel.text = "Placeholder for UITextView"
-//      placeholderLabel.text = DiaryMainView.init().placeHolderTxt[idx]
-//      placeholderLabel.isHidden = false
-//      placeholderLabel.textColor = UIColor.lightGray
+      placeholderLabel = UILabel()
+      placeholderLabel.frame = CGRect(x: xxx, y: yyy, width: placeholderLabelWidth, height: placeholderLabelHeight)
+      placeholderLabel.tag = idx
+      placeholderLabel.text = DiaryMainView.init().placeHolderTxt[idx]
+      placeholderLabel.textColor = UIColor.lightGray
 //      placeholderLabel.sizeToFit()
-//      placeholderLabel.isHidden = !textView.text.isEmpty
-//      diaryCardView.addSubview(placeholderLabel)
+      placeholderLabel.textAlignment = .left
+      placeholderLabel.numberOfLines = 0
+      placeholderLabel.font = UIFont(name: "verdana", size: 18.0)
+
+      diaryCardView.addSubview(placeholderLabel)
     }
   }
-
 
 //  // this code works with textview.delegate = self, textView.becomeFirstResponder()
 //  func textViewDidChange(_ textView: UITextView) {
@@ -99,40 +110,62 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
 //    }
 //  }
 
+
   func textViewDidBeginEditing(_ textView: UITextView) {
-    if textView.text == DiaryMainView.init().placeHolderTxt[textView.tag] {
-      textView.text = ""
-//      placeholderLabel.isHidden = true
-      textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-      textView.textColor = UIColor.black
-//      textView.font = UIFont(name: "verdana", size: 18.0)
-    }
+
+//    textView.backgroundColor = UIColor.lightGray
+    textView.becomeFirstResponder()
   }
 
-  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
-    if text == "\n" {
-      textView.resignFirstResponder()
-    }
-    return true
+  func textViewDidChange(_ textView: UITextView) {
+    placeholderLabel.isHidden = !textView.text.isEmpty
   }
 
   func textViewDidEndEditing(_ textView: UITextView) {
-    if textView.text == "" {
-      textView.text = DiaryMainView.init().placeHolderTxt[textView.tag]
-//      placeholderLabel.isHidden = true
-      textView.textColor = UIColor.lightGray
-//      textView.font = UIFont(name: "verdana", size: 13.0)
-    }
+//    textView.backgroundColor = UIColor.white
     textView.resignFirstResponder()
   }
 
-//  func textViewDidChangeSelection(_ textView: UITextView) {
-//    if self.view.window != nil {
-//      if textView.textColor == UIColor.lightGray {
-//        textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
-//      }
+
+
+
+  // -----------------------------------
+
+
+
+ // this code works with textview.delegate = self, textView.becomeFirstResponder()
+//  func textViewDidBeginEditing(_ textView: UITextView) {
+//
+//    if textView.text.count > 1 { //== DiaryMainView.init().placeHolderTxt[textView.tag]
+//      textView.text = ""
+////      placeholderLabel.isHidden = true
+//      textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+//      textView.textColor = UIColor.black
+//      textView.font = UIFont(name: "verdana", size: 18.0)
 //    }
 //  }
+
+  //  // limit number of string (글자 수 제한)
+
+//  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//    if text == "\n" {
+//      textView.resignFirstResponder()
+//    }
+//    return true
+//  }
+//
+//  func textViewDidEndEditing(_ textView: UITextView) {
+//    if textView.text == "" {
+//      textView.text = DiaryMainView.init().placeHolderTxt[textView.tag]
+////      placeholderLabel.isHidden = true
+//      textView.textColor = UIColor.lightGray
+////      textView.font = UIFont(name: "verdana", size: 13.0)
+//    }
+//    textView.resignFirstResponder()
+//  }
+
+
+
 
 
 

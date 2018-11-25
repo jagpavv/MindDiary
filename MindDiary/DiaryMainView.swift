@@ -13,7 +13,7 @@ class DiaryMainView: UIView {
   let placeHolderTxt = [
     "What is \nthe most bad \nthing to you, today?",
     "Waht is \nthe most happy \nthing to you, today?",
-    "what will \nyou do on tomorrow?"
+    "what will \nyou do tomorrow?"
   ]
 
 }
