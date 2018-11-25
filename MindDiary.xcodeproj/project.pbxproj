@@ -12,7 +12,7 @@
 		ACA3CBC121A4608C00FF11CD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = ACA3CBC021A4608C00FF11CD /* Assets.xcassets */; };
 		ACA3CBC421A4608C00FF11CD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ACA3CBC221A4608C00FF11CD /* LaunchScreen.storyboard */; };
 		ACA3CBCF21A4608C00FF11CD /* MindDiaryTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBCE21A4608C00FF11CD /* MindDiaryTests.swift */; };
-		ACA3CBDA21A464E300FF11CD /* PlaceHolder.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBD921A464E300FF11CD /* PlaceHolder.swift */; };
+		ACA3CBDA21A464E300FF11CD /* PinIndicator.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBD921A464E300FF11CD /* PinIndicator.swift */; };
 		ACA3CBDC21A4657200FF11CD /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBDB21A4657200FF11CD /* Button.swift */; };
 		ACA3CBE221A4779E00FF11CD /* PasscodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBE121A4779E00FF11CD /* PasscodeViewController.swift */; };
 		ACA3CBE421A4850A00FF11CD /* DiaryMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBE321A4850A00FF11CD /* DiaryMainViewController.swift */; };
@@ -39,7 +39,7 @@
 		ACA3CBCA21A4608C00FF11CD /* MindDiaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MindDiaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACA3CBCE21A4608C00FF11CD /* MindDiaryTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MindDiaryTests.swift; sourceTree = "<group>"; };
 		ACA3CBD021A4608C00FF11CD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		ACA3CBD921A464E300FF11CD /* PlaceHolder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceHolder.swift; sourceTree = "<group>"; };
+		ACA3CBD921A464E300FF11CD /* PinIndicator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PinIndicator.swift; sourceTree = "<group>"; };
 		ACA3CBDB21A4657200FF11CD /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		ACA3CBE121A4779E00FF11CD /* PasscodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasscodeViewController.swift; sourceTree = "<group>"; };
 		ACA3CBE321A4850A00FF11CD /* DiaryMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryMainViewController.swift; sourceTree = "<group>"; };
@@ -87,7 +87,7 @@
 			children = (
 				ACA3CBB921A4608A00FF11CD /* AppDelegate.swift */,
 				ACA3CBE121A4779E00FF11CD /* PasscodeViewController.swift */,
-				ACA3CBD921A464E300FF11CD /* PlaceHolder.swift */,
+				ACA3CBD921A464E300FF11CD /* PinIndicator.swift */,
 				ACA3CBDB21A4657200FF11CD /* Button.swift */,
 				ACA3CBE321A4850A00FF11CD /* DiaryMainViewController.swift */,
 				ACA3CBE521A4D34C00FF11CD /* DiaryMainView.swift */,
@@ -213,7 +213,7 @@
 				ACA3CBE421A4850A00FF11CD /* DiaryMainViewController.swift in Sources */,
 				ACA3CBBA21A4608A00FF11CD /* AppDelegate.swift in Sources */,
 				ACA3CBE621A4D34C00FF11CD /* DiaryMainView.swift in Sources */,
-				ACA3CBDA21A464E300FF11CD /* PlaceHolder.swift in Sources */,
+				ACA3CBDA21A464E300FF11CD /* PinIndicator.swift in Sources */,
 				ACA3CBDC21A4657200FF11CD /* Button.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

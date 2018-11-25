@@ -1,6 +1,6 @@
 import UIKit
 
-class PlaceHolder: UIView {
+class PinIndicator: UIView {
   var isColored = false
 
   override func layoutSubviews() {

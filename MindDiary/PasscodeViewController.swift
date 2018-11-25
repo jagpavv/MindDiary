@@ -6,7 +6,7 @@ let maxPasscodeNum = 4
 
 class PasscodeViewController: UIViewController {
 
-  @IBOutlet var placeHolders: [PlaceHolder]!
+  @IBOutlet var pinIndicators: [PinIndicator]!
 
   //  let userDefault = UserDefaults.standard
   //  private var savedPasscode: [Int]? {
@@ -39,7 +39,7 @@ class PasscodeViewController: UIViewController {
   @IBAction func btnTapped(_ sender: Button) {
     switch sender.tag {
     case 0, 1, 2, 3, 4, 5, 6, 7, 8, 9:
-      placeHolders[inputPasscode.endIndex].isColored = true
+      pinIndicators[inputPasscode.endIndex].isColored = true
       UIView.animate(withDuration: 0.3, animations: { self.fillupColor() }) { _ in
         self.checkPasscode(digit: sender.tag)
       }
@@ -68,7 +68,7 @@ class PasscodeViewController: UIViewController {
 
   // Fill up the color when isColored is true.
   func fillupColor() {
-    let isColoredTrueArr = placeHolders.filter { $0.isColored == true }
+    let isColoredTrueArr = pinIndicators.filter { $0.isColored == true }
     isColoredTrueArr.forEach { (p) in
       p.fillup()
     }
@@ -76,19 +76,19 @@ class PasscodeViewController: UIViewController {
 
   func clearAll() {
     inputPasscode.removeAll()
-    placeHolders.forEach { (placeHolder) in
+    pinIndicators.forEach { (placeHolder) in
       placeHolder.clear()
     }
   }
 
   func clearOnebyOne() {
     inputPasscode.removeLast()
-    placeHolders[inputPasscode.endIndex].clear()
+    pinIndicators[inputPasscode.endIndex].clear()
   }
 
   func isIncorrectAnimation() {
     inputPasscode.removeAll()
-    placeHolders.forEach { (placeHolder) in
+    pinIndicators.forEach { (placeHolder) in
       placeHolder.shake()
       placeHolder.clear()
     }
