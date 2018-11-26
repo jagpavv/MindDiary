@@ -9,12 +9,10 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
   var textView: UITextView!
   var placeholderLabel : UILabel!
 
+  var textVeiws: [UITextView] = []
+  var placeholders: [UILabel] = []
+
   @IBOutlet weak var diaryCardBaseView: UIView!
-
-  override func viewDidLoad() {
-    super.viewDidLoad()
-
-  }
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
@@ -68,72 +66,39 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
       textView.delegate = self
 //      textView.becomeFirstResponder()
       textView.frame = CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight)
-//      textView.tag = idx
-//      textView.text = DiaryMainView.init().placeHolderTxt[idx]
-
-//      if textView.tag == 0 {
-//        textView.becomeFirstResponder()
-//      }
-
-//      NotificationCenter.default.addObserver(self,
-//                                             selector: #selector(DiaryMainViewController.textViewDidBeginEditing(_:)),
-//                                             name: UITextView.textDidBeginEditingNotification,
-//                                             object: self)
-
       textView.textColor = UIColor.black
       textView.font = UIFont(name: "verdana", size: 18.0)
-
-
+      textVeiws.append(textView)
+      textVeiws[0].becomeFirstResponder()
       diaryCardView.addSubview(textView)
 
-//      // 4 placeholder label
+      // 4 placeholder label
       placeholderLabel = UILabel()
       placeholderLabel.frame = CGRect(x: xxx, y: yyy, width: placeholderLabelWidth, height: placeholderLabelHeight)
-      placeholderLabel.tag = idx
       placeholderLabel.text = DiaryMainView.init().placeHolderTxt[idx]
       placeholderLabel.textColor = UIColor.lightGray
-//      placeholderLabel.sizeToFit()
       placeholderLabel.textAlignment = .left
       placeholderLabel.numberOfLines = 0
       placeholderLabel.font = UIFont(name: "verdana", size: 18.0)
-
+      placeholders.append(placeholderLabel)
       diaryCardView.addSubview(placeholderLabel)
     }
   }
 
-//  // this code works with textview.delegate = self, textView.becomeFirstResponder()
-//  func textViewDidChange(_ textView: UITextView) {
-//    if !textView.hasText {
-//      placeholderLabel?.isHidden = false
-//    } else {
-//      placeholderLabel?.isHidden = true
-//    }
-//  }
-
-
-  func textViewDidBeginEditing(_ textView: UITextView) {
-
-//    textView.backgroundColor = UIColor.lightGray
-    textView.becomeFirstResponder()
-  }
-
   func textViewDidChange(_ textView: UITextView) {
-    placeholderLabel.isHidden = !textView.text.isEmpty
+    if textView === textVeiws[0] {
+      placeholders[0].isHidden = !textView.text.isEmpty
+    } else if textView === textVeiws[1] {
+      placeholders[1].isHidden = !textView.text.isEmpty
+    } else {
+      placeholders[2].isHidden = !textView.text.isEmpty
+    }
   }
+}
 
-  func textViewDidEndEditing(_ textView: UITextView) {
-//    textView.backgroundColor = UIColor.white
-    textView.resignFirstResponder()
-  }
+// ---------------
 
-
-
-
-  // -----------------------------------
-
-
-
- // this code works with textview.delegate = self, textView.becomeFirstResponder()
+// this code works with textview.delegate = self, textView.becomeFirstResponder()
 //  func textViewDidBeginEditing(_ textView: UITextView) {
 //
 //    if textView.text.count > 1 { //== DiaryMainView.init().placeHolderTxt[textView.tag]
@@ -145,8 +110,7 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
 //    }
 //  }
 
-  //  // limit number of string (글자 수 제한)
-
+//  could use limit number of string
 //  func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
 //    if text == "\n" {
 //      textView.resignFirstResponder()
@@ -163,10 +127,3 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
 //    }
 //    textView.resignFirstResponder()
 //  }
-
-
-
-
-
-
-}
