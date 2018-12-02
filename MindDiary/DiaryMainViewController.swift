@@ -13,6 +13,8 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
   var placeholders: [UILabel] = []
 
   @IBOutlet weak var diaryCardBaseView: UIView!
+  @IBOutlet weak var toolbarView: UIToolbar!
+
 
   override func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
@@ -64,10 +66,11 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
       // 3 text view of DiaryCards
       textView = UITextView()
       textView.delegate = self
-//      textView.becomeFirstResponder()
+      //      textView.becomeFirstResponder()
       textView.frame = CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight)
       textView.textColor = UIColor.black
       textView.font = UIFont(name: "verdana", size: 18.0)
+      textView.inputAccessoryView = toolbarView
       textVeiws.append(textView)
       textVeiws[0].becomeFirstResponder()
       diaryCardView.addSubview(textView)
@@ -84,6 +87,11 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
       diaryCardView.addSubview(placeholderLabel)
     }
   }
+
+  @IBAction func tappedDoneBtn(_ sender: UIBarButtonItem) {
+    print("tapped Done")
+  }
+
 
   func textViewDidChange(_ textView: UITextView) {
     if textView === textVeiws[0] {
@@ -127,3 +135,18 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
 //    }
 //    textView.resignFirstResponder()
 //  }
+
+// --------------
+
+//func textViewDidBeginEditing(_ textView: UITextView) {
+//  textView.text = ""
+//  textView.textColor = UIColor.black
+//}
+//
+//func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+//  if (text == "\n") {
+//    textView.resignFirstResponder()
+//    return false
+//  }
+//  return true
+//}

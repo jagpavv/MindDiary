@@ -189,9 +189,22 @@
                     <tabBarItem key="tabBarItem" title="Item" id="C74-jJ-yQx"/>
                     <connections>
                         <outlet property="diaryCardBaseView" destination="LXA-5J-Ku3" id="kM2-KT-EXh"/>
+                        <outlet property="toolbarView" destination="Ve4-ry-Vtw" id="v45-TR-gJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy3-B3-wwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ve4-ry-Vtw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="MXo-dx-EBD"/>
+                        <barButtonItem systemItem="done" id="eYD-yv-MbP">
+                            <connections>
+                                <action selector="tappedDoneBtn:" destination="bZZ-bQ-MFS" id="C2x-9a-CFT"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
             <point key="canvasLocation" x="1612" y="133.5832083958021"/>
         </scene>
