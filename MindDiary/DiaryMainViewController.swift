@@ -88,7 +88,7 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
       textView.addSubview(saveButton)
 
       textVeiws.append(textView)
-      textVeiws[0].becomeFirstResponder()
+      textVeiws[0].becomeFirstResponder() 
       diaryCardView.addSubview(textView)
 
       // 4 placeholder label
