@@ -8,6 +8,7 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
   var moodColorView: UIView!
   var textView: UITextView!
   var placeholderLabel : UILabel!
+  var saveButton: UIButton!
 
   var textVeiws: [UITextView] = []
   var placeholders: [UILabel] = []
@@ -36,23 +37,29 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
     // 3 text view of DiaryCards
     let textViewWidth = (diaryCardWidth - ((pad * 2) + moodColorViewWidth))
     let textViewHeight = (diaryCardHeight - (pad * 2))
-    let xx = moodColorViewWidth + pad
-    let yy = pad
+    let textViewX = moodColorViewWidth + pad
+    let textViewY = pad
+
+    // save button
+    let saveBtnWidth = textViewWidth
+    let savebtnHeight = CGFloat(30)
+    let saveBtnX = CGFloat(0)
+    let saveBtnY = textViewHeight - savebtnHeight
 
     // 4 placeholder label
     let placeholderLabelWidth = textViewWidth
     let placeholderLabelHeight = textViewHeight
-    let xxx = xx
-    let yyy = yy
+    let placeholderLabelX = textViewX
+    let placeholderLabelY = textViewY
 
     // draw views
     for idx in 0..<kNumberOfDiaryCard {
-      let x = CGFloat(0)
-      let y = CGFloat(idx % 3) * (diaryCardHeight + pad)
+      let diaryCardX = CGFloat(0)
+      let diaryCardY = CGFloat(idx % 3) * (diaryCardHeight + pad)
 
       // 1 DiaryCards
       diaryCardView = UIView()
-      diaryCardView.frame = CGRect(x: x, y: y, width: diaryCardWidth, height: diaryCardHeight)
+      diaryCardView.frame = CGRect(x: diaryCardX, y: diaryCardY, width: diaryCardWidth, height: diaryCardHeight)
       diaryCardView.layer.borderWidth = 1
       diaryCardView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
       diaryCardBaseView.addSubview(diaryCardView)
@@ -67,17 +74,26 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
       textView = UITextView()
       textView.delegate = self
       //      textView.becomeFirstResponder()
-      textView.frame = CGRect(x: xx, y: yy, width: textViewWidth, height: textViewHeight)
+      textView.frame = CGRect(x: textViewX, y: textViewY, width: textViewWidth, height: textViewHeight)
       textView.textColor = UIColor.black
       textView.font = UIFont(name: "verdana", size: 18.0)
       textView.inputAccessoryView = toolbarView
+
+      // save button
+      saveButton = UIButton()
+      saveButton.frame = CGRect(x: saveBtnX, y: saveBtnY, width: saveBtnWidth, height: savebtnHeight)
+      saveButton.backgroundColor = UIColor.red
+      saveButton.setTitle("save", for: .normal)
+      saveButton.addTarget(self, action: #selector(tappedSaveBtn), for: .touchUpInside)
+      textView.addSubview(saveButton)
+
       textVeiws.append(textView)
       textVeiws[0].becomeFirstResponder()
       diaryCardView.addSubview(textView)
 
       // 4 placeholder label
       placeholderLabel = UILabel()
-      placeholderLabel.frame = CGRect(x: xxx, y: yyy, width: placeholderLabelWidth, height: placeholderLabelHeight)
+      placeholderLabel.frame = CGRect(x: placeholderLabelX, y: placeholderLabelY, width: placeholderLabelWidth, height: placeholderLabelHeight)
       placeholderLabel.text = DiaryMainView.init().placeHolderTxt[idx]
       placeholderLabel.textColor = UIColor.lightGray
       placeholderLabel.textAlignment = .left
@@ -87,6 +103,10 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
       diaryCardView.addSubview(placeholderLabel)
     }
   }
+
+  @objc func tappedSaveBtn(sender: UIButton!) {
+    print("saveBtnTapped")
+    }
 
   @IBAction func tappedDoneBtn(_ sender: UIBarButtonItem) {
     print("tapped Done")
