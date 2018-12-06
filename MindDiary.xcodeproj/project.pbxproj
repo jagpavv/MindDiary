@@ -18,6 +18,7 @@
 		ACA3CBE421A4850A00FF11CD /* DiaryMainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBE321A4850A00FF11CD /* DiaryMainViewController.swift */; };
 		ACA3CBE621A4D34C00FF11CD /* DiaryMainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACA3CBE521A4D34C00FF11CD /* DiaryMainView.swift */; };
 		ACE1610821AC761E00F9E9F7 /* MindDiary.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = ACE1610621AC761E00F9E9F7 /* MindDiary.xcdatamodeld */; };
+		ACF52A4421B863990052C250 /* DiaryContent.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF52A4321B863990052C250 /* DiaryContent.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -46,6 +47,7 @@
 		ACA3CBE321A4850A00FF11CD /* DiaryMainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryMainViewController.swift; sourceTree = "<group>"; };
 		ACA3CBE521A4D34C00FF11CD /* DiaryMainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryMainView.swift; sourceTree = "<group>"; };
 		ACE1610721AC761E00F9E9F7 /* MindDiary.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MindDiary.xcdatamodel; sourceTree = "<group>"; };
+		ACF52A4321B863990052C250 /* DiaryContent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiaryContent.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +95,7 @@
 				ACA3CBDB21A4657200FF11CD /* Button.swift */,
 				ACA3CBE321A4850A00FF11CD /* DiaryMainViewController.swift */,
 				ACA3CBE521A4D34C00FF11CD /* DiaryMainView.swift */,
+				ACF52A4321B863990052C250 /* DiaryContent.swift */,
 				ACA3CBBD21A4608A00FF11CD /* Main.storyboard */,
 				ACE1610621AC761E00F9E9F7 /* MindDiary.xcdatamodeld */,
 				ACA3CBC021A4608C00FF11CD /* Assets.xcassets */,
@@ -217,6 +220,7 @@
 				ACA3CBBA21A4608A00FF11CD /* AppDelegate.swift in Sources */,
 				ACA3CBE621A4D34C00FF11CD /* DiaryMainView.swift in Sources */,
 				ACA3CBDA21A464E300FF11CD /* PinIndicator.swift in Sources */,
+				ACF52A4421B863990052C250 /* DiaryContent.swift in Sources */,
 				ACE1610821AC761E00F9E9F7 /* MindDiary.xcdatamodeld in Sources */,
 				ACA3CBDC21A4657200FF11CD /* Button.swift in Sources */,
 			);
