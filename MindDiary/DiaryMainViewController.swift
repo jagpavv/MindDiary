@@ -136,21 +136,21 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
 //      currentTxt = textVeiws[0].text
       oldContent = storedDiary.value(forKeyPath: "bad") as? String
       if let oldContent = oldContent {
-        updateToCoreData(content: textBad, oldContent: oldContent)
+        updateToCoreData(content: textBad, oldContent: oldContent, btnTag: sender.tag)
         print(oldContent)
       }
     } else if sender.tag == 1 {
 //      currentTxt = textVeiws[1].text
       oldContent = storedDiary.value(forKeyPath: "good") as? String
       if let oldContent = oldContent {
-        updateToCoreData(content: textGood, oldContent: oldContent)
+        updateToCoreData(content: textGood, oldContent: oldContent, btnTag: sender.tag)
         print(oldContent)
       }
     } else if sender.tag == 2 {
 //      currentTxt = textVeiws[2].text
       oldContent = storedDiary.value(forKeyPath: "tomorrow") as? String
       if let oldContent = oldContent {
-        updateToCoreData(content: textTomorrow, oldContent: oldContent)
+        updateToCoreData(content: textTomorrow, oldContent: oldContent, btnTag: sender.tag)
         print(oldContent)
       }
     }
@@ -239,37 +239,83 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
     }
   }
 
-  func updateToCoreData(content: String, oldContent: String) {
+  func updateToCoreData(content: String, oldContent: String, btnTag: Int) {
     guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
     let managedContext = appDelegate.persistentContainer.viewContext
-    let fetchRequest1 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
-    fetchRequest1.predicate = NSPredicate(format: "bad = %@", oldContent)
 
-    let fetchRequest2 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
-    fetchRequest2.predicate = NSPredicate(format: "good = %@", oldContent)
-
-    let fetchRequest3 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
-    fetchRequest3.predicate = NSPredicate(format: "tomorrow = %@", oldContent)
-
-    do {
-      let content1 = try managedContext.fetch(fetchRequest1)
-      let content2 = try managedContext.fetch(fetchRequest2)
-      let content3 = try managedContext.fetch(fetchRequest3)
-
-      let objectUpdate1 = content1[0]
-      let objectUpdate2 = content2[0]
-      let objectUpdate3 = content3[0]
-
-      //      let objectUpdate = test[0] as! NSManagedObject
-      objectUpdate1.setValue(content, forKeyPath: "bad")
-      objectUpdate2.setValue(content, forKeyPath: "good")
-      objectUpdate3.setValue(content, forKeyPath: "tomorrow")
+    switch btnTag {
+    case 0:
+      let fetchRequest0 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
+      fetchRequest0.predicate = NSPredicate(format: "bad = %@", oldContent)
       do {
-        try managedContext.save()
+        let content0 = try managedContext.fetch(fetchRequest0)
+        let objectUpdate0 = content0[0]
+        objectUpdate0.setValue(content, forKeyPath: "bad")
+        do {
+          try managedContext.save()
+        }
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
       }
-    } catch let error as NSError {
-      print("Could not save. \(error), \(error.userInfo)")
+    case 1:
+      let fetchRequest1 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
+      fetchRequest1.predicate = NSPredicate(format: "good = %@", oldContent)
+      do {
+        let content1 = try managedContext.fetch(fetchRequest1)
+        let objectUpdate1 = content1[0]
+        objectUpdate1.setValue(content, forKeyPath: "good")
+        do {
+          try managedContext.save()
+        }
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
+      }
+    case 2:
+      let fetchRequest2 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
+      fetchRequest2.predicate = NSPredicate(format: "tomorrow = %@", oldContent)
+      do {
+
+        let content2 = try managedContext.fetch(fetchRequest2)
+        let objectUpdate2 = content2[0]
+        objectUpdate2.setValue(content, forKeyPath: "tomorrow")
+        do {
+          try managedContext.save()
+        }
+      } catch let error as NSError {
+        print("Could not save. \(error), \(error.userInfo)")
+      }
+    default:
+      break
     }
+
+//    let fetchRequest1 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
+//    fetchRequest1.predicate = NSPredicate(format: "bad = %@", oldContent)
+//
+//    let fetchRequest2 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
+//    fetchRequest2.predicate = NSPredicate(format: "good = %@", oldContent)
+//
+//    let fetchRequest3 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
+//    fetchRequest3.predicate = NSPredicate(format: "tomorrow = %@", oldContent)
+
+//    do {
+//      let content1 = try managedContext.fetch(fetchRequest1)
+//      let content2 = try managedContext.fetch(fetchRequest2)
+//      let content3 = try managedContext.fetch(fetchRequest3)
+//
+//      let objectUpdate1 = content1[0]
+//      let objectUpdate2 = content2[0]
+//      let objectUpdate3 = content3[0]
+//
+//      //      let objectUpdate = test[0] as! NSManagedObject
+//      objectUpdate1.setValue(content, forKeyPath: "bad")
+//      objectUpdate2.setValue(content, forKeyPath: "good")
+//      objectUpdate3.setValue(content, forKeyPath: "tomorrow")
+//      do {
+//        try managedContext.save()
+//      }
+//    } catch let error as NSError {
+//      print("Could not save. \(error), \(error.userInfo)")
+//    }
   }
 
 //    switch guess.count {
