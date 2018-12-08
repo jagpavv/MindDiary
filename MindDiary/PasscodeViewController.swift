@@ -1,10 +1,17 @@
 import UIKit
 import Foundation
+import CoreData
 
 let ksavedPasscode = "userPasscode"
 let maxPasscodeNum = 4
 
 class PasscodeViewController: UIViewController {
+
+  private var savedPasscode = [Int]()
+  var inputPasscode = [Int]()
+
+  // *** core data
+  var storedPasscode: [NSManagedObject] = []
 
   @IBOutlet var pinIndicators: [PinIndicator]!
 
@@ -18,13 +25,26 @@ class PasscodeViewController: UIViewController {
   //    }
   //  }
 
-  private var savedPasscode = [Int]()
-  var inputPasscode = [Int]()
-
   override func viewDidLoad() {
     super.viewDidLoad()
-    print(savedPasscode.isEmpty)
   }
+
+//  // *** core data
+//  override func viewWillAppear(_ animated: Bool) {
+//    super.viewWillAppear(animated)
+//    guard let appDelegate = UIApplication.shared.delegate as? AppDelegate else { return }
+//
+//    let managedContext = appDelegate.persistentContainer.viewContext
+//    let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "User")
+//
+//    do {
+//      storedPasscode = try managedContext.fetch(fetchRequest)
+//    } catch let error as NSError {
+//      print("Could not fetch. \(error), \(error.userInfo)")
+//    }
+//  }
+
+
 
   // If user didn't set the passcode move to Diary main view
   override func viewDidAppear(_ animated: Bool) {
@@ -54,6 +74,19 @@ class PasscodeViewController: UIViewController {
   }
 
   func checkPasscode(digit: Int) {
+//    do {
+//      let fetchRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "User")
+//      let result = try managedContext.fetch(fetchRequest)
+//      if (result.count < 1) {
+//        createUser()
+//      }
+//    }
+//    catch let error as NSError
+//    {
+//      print("Could not fetch: \(error)")
+//    }
+
+
     inputPasscode.append(digit)
     if inputPasscode.count == savedPasscode.count {
       if inputPasscode == savedPasscode {

@@ -169,31 +169,60 @@
             <objects>
                 <viewController storyboardIdentifier="DiaryMain" id="bZZ-bQ-MFS" customClass="DiaryMainViewController" customModule="MindDiary" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="5Xn-Qx-7dn">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="1000"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-5J-Ku3">
-                                <rect key="frame" x="16" y="70" width="343" height="548"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AT0-z8-TlB">
+                                <rect key="frame" x="16" y="70" width="343" height="881"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="LXA-5J-Ku3">
+                                        <rect key="frame" x="0.0" y="0.0" width="343" height="889"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="889" id="LxG-ZY-9U0"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="LXA-5J-Ku3" firstAttribute="width" secondItem="AT0-z8-TlB" secondAttribute="width" id="0o3-ri-CQi"/>
+                                    <constraint firstAttribute="bottom" secondItem="LXA-5J-Ku3" secondAttribute="bottom" id="84n-gM-qOG"/>
+                                    <constraint firstItem="LXA-5J-Ku3" firstAttribute="top" secondItem="AT0-z8-TlB" secondAttribute="top" id="GnD-Nc-dYg"/>
+                                    <constraint firstItem="LXA-5J-Ku3" firstAttribute="leading" secondItem="AT0-z8-TlB" secondAttribute="leading" id="Kea-fE-eHG"/>
+                                    <constraint firstAttribute="trailing" secondItem="LXA-5J-Ku3" secondAttribute="trailing" id="jie-0d-NAK"/>
+                                </constraints>
+                            </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="LXA-5J-Ku3" firstAttribute="top" secondItem="z6y-UR-9y1" secondAttribute="top" constant="50" id="EBR-d9-rPH"/>
-                            <constraint firstItem="LXA-5J-Ku3" firstAttribute="leading" secondItem="z6y-UR-9y1" secondAttribute="leading" constant="16" id="Gma-J1-fxC"/>
-                            <constraint firstItem="z6y-UR-9y1" firstAttribute="trailing" secondItem="LXA-5J-Ku3" secondAttribute="trailing" constant="16" id="dKh-61-SV2"/>
-                            <constraint firstItem="LXA-5J-Ku3" firstAttribute="bottom" secondItem="z6y-UR-9y1" secondAttribute="bottom" id="xXo-gh-djb"/>
+                            <constraint firstItem="AT0-z8-TlB" firstAttribute="leading" secondItem="z6y-UR-9y1" secondAttribute="leading" constant="16" id="6ET-dy-IF4"/>
+                            <constraint firstItem="AT0-z8-TlB" firstAttribute="top" secondItem="z6y-UR-9y1" secondAttribute="top" constant="50" id="ZYi-wy-aYj"/>
+                            <constraint firstItem="z6y-UR-9y1" firstAttribute="trailing" secondItem="AT0-z8-TlB" secondAttribute="trailing" constant="16" id="d6q-no-7gU"/>
+                            <constraint firstItem="z6y-UR-9y1" firstAttribute="bottom" secondItem="AT0-z8-TlB" secondAttribute="bottom" id="hL5-Hu-ndb"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="z6y-UR-9y1"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Item" id="C74-jJ-yQx"/>
+                    <size key="freeformSize" width="375" height="1000"/>
                     <connections>
                         <outlet property="diaryCardBaseView" destination="LXA-5J-Ku3" id="kM2-KT-EXh"/>
+                        <outlet property="toolbarView" destination="Ve4-ry-Vtw" id="v45-TR-gJT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hy3-B3-wwD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <toolbar opaque="NO" clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="Ve4-ry-Vtw">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                    <items>
+                        <barButtonItem style="plain" systemItem="flexibleSpace" id="MXo-dx-EBD"/>
+                        <barButtonItem systemItem="done" id="eYD-yv-MbP">
+                            <connections>
+                                <action selector="tappedDoneBtn:" destination="bZZ-bQ-MFS" id="C2x-9a-CFT"/>
+                            </connections>
+                        </barButtonItem>
+                    </items>
+                </toolbar>
             </objects>
-            <point key="canvasLocation" x="1612" y="133.5832083958021"/>
+            <point key="canvasLocation" x="1612" y="133.13343328335833"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="NYu-cd-18w">
