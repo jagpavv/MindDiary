@@ -38,7 +38,7 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
     let storedDiary = diaryContents[0]
     textVeiws[0].text = storedDiary.value(forKeyPath: "bad") as? String
     textVeiws[1].text = storedDiary.value(forKeyPath: "good") as? String
-    textVeiws[1].text = storedDiary.value(forKeyPath: "tomorrow") as? String
+    textVeiws[2].text = storedDiary.value(forKeyPath: "tomorrow") as? String
   }
 
   func showDiaryCard() {
@@ -125,6 +125,7 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
   }
 
   @objc func tappedSaveBtn(sender: UIButton!) {
+
     saveToCoreData(content: textVeiws[sender.tag].text, btnTag: sender.tag)
 
     let storedDiary = diaryContents[0]
@@ -247,6 +248,7 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
     case 0:
       let fetchRequest0 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
       fetchRequest0.predicate = NSPredicate(format: "bad = %@", oldContent)
+
       do {
         let content0 = try managedContext.fetch(fetchRequest0)
         let objectUpdate0 = content0[0]
@@ -287,53 +289,7 @@ class DiaryMainViewController: UIViewController, UITextViewDelegate {
     default:
       break
     }
-
-//    let fetchRequest1 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
-//    fetchRequest1.predicate = NSPredicate(format: "bad = %@", oldContent)
-//
-//    let fetchRequest2 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
-//    fetchRequest2.predicate = NSPredicate(format: "good = %@", oldContent)
-//
-//    let fetchRequest3 = NSFetchRequest<NSManagedObject>(entityName: "Diary")
-//    fetchRequest3.predicate = NSPredicate(format: "tomorrow = %@", oldContent)
-
-//    do {
-//      let content1 = try managedContext.fetch(fetchRequest1)
-//      let content2 = try managedContext.fetch(fetchRequest2)
-//      let content3 = try managedContext.fetch(fetchRequest3)
-//
-//      let objectUpdate1 = content1[0]
-//      let objectUpdate2 = content2[0]
-//      let objectUpdate3 = content3[0]
-//
-//      //      let objectUpdate = test[0] as! NSManagedObject
-//      objectUpdate1.setValue(content, forKeyPath: "bad")
-//      objectUpdate2.setValue(content, forKeyPath: "good")
-//      objectUpdate3.setValue(content, forKeyPath: "tomorrow")
-//      do {
-//        try managedContext.save()
-//      }
-//    } catch let error as NSError {
-//      print("Could not save. \(error), \(error.userInfo)")
-//    }
   }
-
-//    switch guess.count {
-//    case 0:
-//      firstGuessButton?.value = CardButton.unusedValue
-//      secondGuessButton?.value = CardButton.unusedValue
-//    case 1:
-//      firstGuessButton?.value = guess[0]
-//      secondGuessButton?.value = CardButton.unusedValue
-//    case 2:
-//      firstGuessButton?.value = guess[0]
-//      secondGuessButton?.value = guess[1]
-//    default:
-//      break
-//    }
-//    playSound(soundName: "sound0")
-//    moveTo()
-//  }
 
   func textViewDidChange(_ textView: UITextView) {
     if textView === textVeiws[0] {
